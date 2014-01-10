@@ -10,6 +10,17 @@ if (Meteor.isClient) {
         console.log("You pressed the button");
     }
   });
+
+  Template.maps.rendered = function(){
+    var mapOptions = {
+      zoom: 16,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      
+    var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions); 
+        map.setCenter(new google.maps.LatLng( 42.359, -71.093 ));
+    };
+    
 }
 
 if (Meteor.isServer) {
