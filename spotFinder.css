@@ -1,0 +1,26 @@
+*, html, body{
+    margin:0px;
+    padding:0px;
+}
+
+html,body{
+    height:100%
+}
+
+div{
+    margin: 0px;
+    display:block;
+}
+
+.banner {
+    height: 100px;
+    width: 100%;
+    margin-top: 0px;
+    background-color: red;
+}
+
+#map-canvas{
+    height:75%;
+    margin: 0px;
+    padding: 0px
+}
