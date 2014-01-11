@@ -9,7 +9,7 @@ Template.maps.rendered = function(){
     
   var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions); 
       map.setCenter(new google.maps.LatLng( 42.359, -71.093 ));
-  };
+  
   var layer = new google.maps.FusionTablesLayer({
     query: {
       select: 'Latitude, Longitude',
@@ -17,16 +17,22 @@ Template.maps.rendered = function(){
     }
   });
 
-Template.filters-box.events({
   $('#garage').click(function(){
       layer.setMap($(this).is(':checked') ? map : null);
   });
+  
+};
+
+
+
+// this isn't working
+/*Template.filters-box.events({
   'click input' : function () {
     // template data, if any, is available in 'this'
     if (typeof console !== 'undefined')
       console.log("You pressed the button");
   }
-});
+});*/
 
 Template.login.events({
 
