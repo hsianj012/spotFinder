@@ -10,6 +10,12 @@ Template.maps.rendered = function(){
   var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions); 
       map.setCenter(new google.maps.LatLng( 42.359, -71.093 ));
   };
+  var layer = new google.maps.FusionTablesLayer({
+    query: {
+      select: 'Latitude, Longitude',
+      from: "1r2CxHILKV7EqXoJYXEOKDlgR04uJl-Y5wNWwCsU",
+    }
+  });
 
 Template.filters-box.events({
   'click input' : function () {
