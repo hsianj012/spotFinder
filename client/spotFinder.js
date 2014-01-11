@@ -18,6 +18,9 @@ Template.maps.rendered = function(){
   });
 
 Template.filters-box.events({
+  $('#garage').click(function(){
+      layer.setMap($(this).is(':checked') ? map : null);
+  });
   'click input' : function () {
     // template data, if any, is available in 'this'
     if (typeof console !== 'undefined')
