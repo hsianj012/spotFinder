@@ -7,24 +7,24 @@
 </head>
 
 <body>
+
   {{> banner}}
-  
+
   {{> maps}}
   
-  more text
 </body>
 
 <template name="banner">
   <div class="header">
-  <form id="login" action="action">
-    <div class="row"><img id="logo" src="http://blogs-images.forbes.com/gregvoakes/files/2012/06/reddit-logo.jpeg"></div>
-    <div class="row"><img id="logo" src="http://blogs-images.forbes.com/gregvoakes/files/2012/06/reddit-logo.jpeg"></div>
+    <div class="row"><img id="logo" src="http://onforb.es/1greQGB"></div>
+    <div class="row"><img id="logo" src="http://onforb.es/1greQGB"></div>
     <div class="row">
-      email: <input type="email" id="login-email"/><br/>
-      password: <input type="password" id="login-password"/>
-      <input type="submit" id="login-button" value="Sign In"/>
+      <form class="login" id="login" action="action">
+        email: <input class"login" type="email" id="login-email"/><br/>
+        password: <input class"login" type="password" id="login-password"/><br/>
+        <input type="submit" id="login-button" value="Sign In"/>
+      </form>
     </div>
-  </form>
   </div>
 </template>
 
@@ -34,8 +34,9 @@
 
 <template name="filters-box">
   <form id="filters">
-    <input type="checkbox" name="vehicle" value="Bike">I have a bike<br/>
-    <input type="checkbox" name="vehicle" value="Car">I have a car<br/>
+    <input type="checkbox" name="vehicle" value="Bike">Garage<br/>
+    <input type="checkbox" name="vehicle" value="Car">Metered<br/>
+    <input type="checkbox" name="vehicle" value="Car">Free<br/>
     <input type="submit" value="Submit"/>
   </form>
 </template>
