@@ -4,6 +4,7 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCykzFtBxpm6PNEJBb04UbNPdX06yJYtTQ&sensor=false"></script>
+
 </head>
 
 <body>
@@ -12,6 +13,9 @@
 
   {{> maps}}
   
+  {{#if currentUser}}
+    Your are now logged in.
+  {{/if}}
 </body>
 
 <template name="banner">
@@ -19,9 +23,7 @@
     <div class="row"><img id="logo" src="http://onforb.es/1greQGB"></div>
     <div class="row"><img id="logo" src="http://onforb.es/1greQGB"></div>
     <div class="row login">{{loginButtons align="right"}}
-      {{#if currentUser}}
-        Your are now logged in.
-      {{/if}}
+
 
     </div>
   </div>
@@ -29,11 +31,14 @@
 </template>
 
 <template name="maps">
-  <div class="row filters-box">{{> filters-box}}</div><div id="map-canvas"></div>
+  <div class="row filtersBox">{{> filtersBox}}</div><div id="map-canvas"></div>
 </template>
 
-<template name="filters-box">
-    <div class="filter"><input type="checkbox" id="garage">Garage<br/></div>
-    <div class="filter"><input type="checkbox" id="meter">Metered<br/></div>
-    <div class="filter"><input type="checkbox" id="free">Free<br/></div>
+<template name="filtersBox">
+  <div class="filter"><input type="checkbox" id="free">Free<br/></div>    
+  <div class="filter"><input type="checkbox" id="meter">Metered<br/></div>
+
+  <div class="filter hasSub"><input type="checkbox" id="garage">Garage<br/></div>
+  <div class="subfilter"><input disabled type="checkbox" id="indoor" name="garage">Indoor<br/></div>
+  <div class="subfilter"><input disabled type="checkbox" id="outdoor" name="garage">Outdoor<br/></div>  
 </template>
