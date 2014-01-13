@@ -1,0 +1,41 @@
+<head>
+  <title>spotFinder</title>
+    <link rel="stylesheet" type="text/css" href="spotFinder.css"/>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCykzFtBxpm6PNEJBb04UbNPdX06yJYtTQ&sensor=false"></script>
+</head>
+
+<body>
+
+  {{> banner}}
+
+  {{> maps}}
+  
+</body>
+
+<template name="banner">
+  <div class="header">
+    <div class="row"><img id="logo" src="http://onforb.es/1greQGB"></div>
+    <div class="row"><img id="logo" src="http://onforb.es/1greQGB"></div>
+    <div class="row">
+      <form class="login" id="login" action="action">
+        email: <input class"login" type="email" id="login-email"/><br/>
+        password: <input class"login" type="password" id="login-password"/><br/>
+        <input type="submit" id="login-button" value="Sign In"/>
+      </form>
+    </div>
+  </div>
+</template>
+
+<template name="maps">
+  {{> filters-box}}<div id="map-canvas"></div>
+</template>
+
+<template name="filters-box">
+  <form id="filters">
+    <div class"filter"><input type="checkbox" id="garage">Garage<br/></div>
+    <div class"filter"><input type="checkbox" id="meter">Metered<br/></div>
+    <div class"filter"><input type="checkbox" id="free">Free<br/></div>
+  </form>
+</template>
