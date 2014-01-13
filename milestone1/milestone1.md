@@ -1,9 +1,9 @@
 <h3>Milestone 1 - Idea, UI/UX, and MVP Features</h3>
-<b>User Research</b>
+<b>User Research</b><br>
 1.    Problem: finding a parking spot <br>
-Solution: searchable map w/ potential parking spots highlighted on map
-2.	Feature: being able to filter spots by features (free, metered, garage, etc.)
-3.	Target Demographic: infrequent driver/commuter not familiar with the parking situation/availability in the city. 
+Solution: searchable map w/ potential parking spots highlighted on map<br>
+2.	Feature: being able to filter spots by features (free, metered, garage, etc.)<br>
+3.	Target Demographic: infrequent driver/commuter not familiar with the parking situation/availability in the city. <br>
 4.	<u>Use Case:</u><br>
 User - has an evening appointment at the student center <br>
 User - drives to campus, needs place to park<br>
@@ -28,11 +28,11 @@ designs are in folder
     none of these features are critical to the website functioning
 3. There will definitely be limited datasets, probably limited to the Cambridge/MIT area and whatever info that is readily available.
 
-<b>Additional Questions</b>
+<b>Additional Questions</b><br>
 1.	Judy Hsiang (jhsiang@mit.edu)<br>
 MIT Undergraduate (Senior in 2 OE)<br>
-Taking for credit
-2.	Urban Transportation
-3.	Server-side: meteor
-4.  My main risk is using a Google API and an experimental API feature. 
+Taking for credit<br>
+2.	Urban Transportation<br>
+3.	Server-side: meteor<br>
+4.  My main risk is using a Google API and an experimental API feature. <br>
 5.	I plan to compete in the Rookie division
