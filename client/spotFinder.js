@@ -24,16 +24,6 @@ Template.maps.rendered = function(){
 };
 
 
-
-// this isn't working
-/*Template.filters-box.events({
-  'click input' : function () {
-    // template data, if any, is available in 'this'
-    if (typeof console !== 'undefined')
-      console.log("You pressed the button");
-  }
-});*/
-
 Template.login.events({
 
   'submit #login-form' : function(e, t){
