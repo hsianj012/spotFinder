@@ -34,6 +34,10 @@ div{
     display: inline-block;
 }
 
+.filters-box{
+    position: absolute;
+}
+
 #map-canvas{
     height:75%;
     margin: 0px;
