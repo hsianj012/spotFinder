@@ -17,15 +17,22 @@ Template.maps.rendered = function(){
     }
   });
 
-  $('#garage').click(function(){
+  $('#indoor').click(function(){
       layer.setMap($(this).is(':checked') ? map : null);
   });
   
 };
 
+Template.filtersBox.events({
+  'change .hasSub' : function(){
+    var elems = document.getElementsByClassName('subfilter');
+    for(i=0; i<elems.length; i++) {
+      elems[i].disabled = !elems[i].disabled;
+    };
+    console.log("you clicked the checkbox")
+  },
 
-
-    // retrieve the input field values
-
-        // The user might not have been found, or their passwword
+  'change input' : function(){
+    console.log("you clicked")
+  }
 });
