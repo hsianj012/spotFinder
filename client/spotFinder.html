@@ -18,24 +18,22 @@
   <div class="header">
     <div class="row"><img id="logo" src="http://onforb.es/1greQGB"></div>
     <div class="row"><img id="logo" src="http://onforb.es/1greQGB"></div>
-    <div class="row">
-      <form class="login" id="login" action="action">
-        email: <input class"login" type="email" id="login-email"/><br/>
-        password: <input class"login" type="password" id="login-password"/><br/>
-        <input type="submit" id="login-button" value="Sign In"/>
-      </form>
+    <div class="row login">{{loginButtons align="right"}}
+      {{#if currentUser}}
+        Your are now logged in.
+      {{/if}}
+
     </div>
   </div>
+
 </template>
 
 <template name="maps">
-  {{> filters-box}}<div id="map-canvas"></div>
+  <div class="row">{{> filters-box}}</div><div id="map-canvas"></div>
 </template>
 
 <template name="filters-box">
-  <form id="filters">
-    <input type="checkbox" id="garage">Garage<br/>
-    <input type="checkbox" id="meter">Metered<br/>
-    <input type="checkbox" id="free">Free<br/>
-  </form>
+    <div class="filter"><input type="checkbox" id="garage">Garage<br/></div>
+    <div class="filter"><input type="checkbox" id="meter">Metered<br/></div>
+    <div class="filter"><input type="checkbox" id="free">Free<br/></div>
 </template>
