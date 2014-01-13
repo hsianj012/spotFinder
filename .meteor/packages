@@ -10,4 +10,4 @@ preserve-inputs
 accounts-base
 googlemaps
 accounts-password
-accounts-ui-unstyled
+accounts-ui
