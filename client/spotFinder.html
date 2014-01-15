@@ -8,34 +8,43 @@
 </head>
 
 <body>
-
+  
   {{> banner}}
 
   {{> maps}}
-  
-  {{#if currentUser}}
-    Your are now logged in.
-  {{/if}}
+
 </body>
 
 <template name="banner">
   <div class="header">
     <div class="row"><img id="logo" src="http://web.mit.edu/jhsiang/Public/logo.png"></div>
-    <div class="row login">{{loginButtons align="right"}}
-
-
-    </div>
+    <div class="row login">{{loginButtons align="right"}}</div>
   </div>
 
 </template>
 
 <template name="maps">
-  <div class="row filtersBox">{{> filtersBox}}</div><div id="map-canvas"></div>
+  <div class="row filtersBox">
+    {{#if currentUser}}
+      {{> filtersBoxUser}}
+    {{else}}
+      {{> filtersBoxNonUser}}
+    {{/if}}
+  </div><!-- <input id="pac-input" class="controls" type="text" placeholder="Search Box"> --><div id="map-canvas"></div>
 </template>
 
-<template name="filtersBox">
+<template name="filtersBoxUser">
   <div class="filter"><input type="checkbox" id="free">Free<br/></div>    
-  <div class="filter"><input type="checkbox" id="meter">Metered<br/></div>
+  <div class="filter"><input type="checkbox" id="meter" >Metered<br/></div>
+
+  <div class="filter hasSub"><input type="checkbox" id="garage">Garage<br/></div>
+  <div class="subfilter-box"><input disabled class="subfilter" type="checkbox" id="indoor" checked>Indoor<br/></div>
+  <div class="subfilter-box"><input disabled class="subfilter" type="checkbox" id="outdoor" >Outdoor<br/></div>  
+</template>
+
+<template name="filtersBoxNonUser">
+  <div class="filter"><input disabled type="checkbox" id="free">Free<br/></div>    
+  <div class="filter"><input disabled type="checkbox" id="meter" disabled>Metered<br/></div>
 
   <div class="filter hasSub"><input type="checkbox" id="garage">Garage<br/></div>
   <div class="subfilter-box"><input disabled class="subfilter" type="checkbox" id="indoor" checked>Indoor<br/></div>
