@@ -2,9 +2,10 @@
   <title>spotFinder</title>
     <link rel="stylesheet" type="text/css" href="spotFinder.css"/>
     <script type="text/javascript" src="client.js"></script>
+    <script type="text/javascript" src="maps.js"></script>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCykzFtBxpm6PNEJBb04UbNPdX06yJYtTQ&sensor=false"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCykzFtBxpm6PNEJBb04UbNPdX06yJYtTQ&sensor=false"></script>
 
 </head>
 
@@ -14,14 +15,20 @@
 
   {{> maps}}
 
+  {{> bottomBanner}}
+
 </body>
 
 <template name="banner">
   <div class="header">
     <div class="row"><img id="logo" src="http://web.mit.edu/jhsiang/Public/logo.png"></div>
+    <div class="row"><input id="pac-input" class="controls" type="text" placeholder="Search Box"></div>
     <div class="row login">{{loginButtons align="right"}}</div>
   </div>
+</template>
 
+<template name="bottomBanner">
+  <div class="footer"></div>
 </template>
 
 <template name="maps">
