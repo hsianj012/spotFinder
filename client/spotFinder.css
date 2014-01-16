@@ -11,7 +11,6 @@ html,body{
 div{
     margin: 0px;
     display: block;
-    border: 5px black;
 }
 
 .login{
@@ -33,6 +32,13 @@ div{
     margin-bottom: 2px;
 }
 
+.footer {
+    height: 50px;
+    background-color: #a6dced;
+    margin-top: 2px;
+    bottom: 0px;
+}
+
 .row {
     display: inline-block;
 }
@@ -42,7 +48,7 @@ div{
 }
 
 #map-canvas{
-    height:75%;
+    height: 100%;
     margin: 0px;
     margin-left: 200px;
     padding: 0px;
