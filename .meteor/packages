@@ -11,3 +11,4 @@ accounts-base
 googlemaps
 accounts-password
 accounts-ui
+event-hooks
