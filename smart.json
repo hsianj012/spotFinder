@@ -1,5 +1,6 @@
 {
   "packages": {
-    "googlemaps": {}
+    "googlemaps": {},
+    "event-hooks": {}
   }
 }
