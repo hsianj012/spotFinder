@@ -13,6 +13,9 @@ div{
     display: block;
 }
 
+#full{
+  height: 100%
+}
 .login{
     position: absolute;
     top: 10px;
@@ -41,14 +44,52 @@ div{
 
 .row {
     display: inline-block;
+    height: 100px;
+    top:0;
 }
 
 .filtersBox{
     position: absolute;
 }
 
+.controls {
+  margin-top: 34px;
+  margin-left:20px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 32px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#pac-input {
+  position: absolute;
+  background-color: #fff;
+  padding: 0 11px 0 13px;
+  width: 400px;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  text-overflow: ellipsis;
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+  margin-left: -1px;
+  padding-left: 14px;  /* Regular padding-left + 1. */
+  width: 401px;
+}
+
+.pac-container {
+  font-family: Roboto;
+}
+
 #map-canvas{
     height: 100%;
+    top: 0px;
+    bottom: 50px;
     margin: 0px;
     margin-left: 200px;
     padding: 0px;
