@@ -10,50 +10,76 @@ Template.maps.rendered = function(){
     center: new google.maps.LatLng(42.359, -71.093)
   };
 
-  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
   garagesIn = new google.maps.FusionTablesLayer({
     query: {
       select: 'geometry',
       from: '106s6eTuo9xDGTMgo4Z9Z16r4jlHGxZezMPsqa24'
-    }
+    },
+    map:map,
+    styles: [{
+      markerOptions: {
+        iconName: 'small_green'
+      }
+    }]
   });
 
-  // var garagesOut = new google.maps.FusionTablesLayer({
+  // google.maps.event.addListener(garagesOut, 'click', function(e) {
+  //   windowControl(e, infoWindow, map);
+  // });
+
+  garagesOut = new google.maps.FusionTablesLayer({
+    query: {
+      select: 'geometry',
+      from: '1IiUGI1cMwo3jzhwrNMVNbVNhsOs7GcpmXjxf82g'
+    },
+    map:map,
+    // styles: [{
+    //   markerOptions: {
+    //     iconName: 'small_yellow'
+    //   }
+    // }]
+  });
+
+  // google.maps.event.addListener(garagesOut, 'click', function(e) {
+  //   windowControl(e, infoWindow, map);
+  // });
+
+  // freeSpots = new google.maps.FusionTablesLayer({
   //   query: {
   //     select: 'geometry',
   //     from: '106s6eTuo9xDGTMgo4Z9Z16r4jlHGxZezMPsqa24'
   //   }
   // });
 
-  // var freeSpots = new google.maps.FusionTablesLayer({
+  // meteredSpots = new google.maps.FusionTablesLayer({
   //   query: {
   //     select: 'geometry',
   //     from: '106s6eTuo9xDGTMgo4Z9Z16r4jlHGxZezMPsqa24'
   //   }
   // });
 
-  // var meteredSpots = new google.maps.FusionTablesLayer({
-  //   query: {
-  //     select: 'geometry',
-  //     from: '106s6eTuo9xDGTMgo4Z9Z16r4jlHGxZezMPsqa24'
-  //   }
-  // });
-
-  garagesIn.setMap(map);
+  // garagesIn.filterMap(map);
+  // garagesOut.filterMap(map);
 
   $('#garage').change(function(){
-    garagesIn.setMap($(this).is(':checked') ? map:null);
-    // garagesOut.setMap($(this).is(':checked') ? map:null);
+    if ($('#indoor').is(':checked')) {
+      garagesIn.setMap($(this).is(':checked') ? map:null);
+    };
+    
+    if ($('#outdoor').is(':checked')) {
+      garagesOut.setMap($(this).is(':checked') ? map:null);
+    };
   });
 
-  $('#indoor').click(function(){
+  $('#indoor').change(function(){
     garagesIn.setMap($(this).is(':checked') ? map:null);
   });
 
-  // $('#outdoor').click(function(){
-  //   garagesOut.setMap($(this).is(':checked') ? map:null);
-  // });
+  $('#outdoor').change(function(){
+    garagesOut.setMap($(this).is(':checked') ? map:null);
+  });
 
   // $('#free').click(function(){
   //   freeSpots.setMap($(this).is(':checked') ? map:null);
