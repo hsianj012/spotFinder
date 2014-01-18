@@ -5,15 +5,65 @@ Meteor.startup(function(){
 Template.maps.rendered = function(){
   var markers = [];
   var mapOptions = {
-    zoom: 16,
+    zoom: 14,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     center: new google.maps.LatLng(42.359, -71.093)
   };
 
-  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions)
+  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
+  garagesIn = new google.maps.FusionTablesLayer({
+    query: {
+      select: 'geometry',
+      from: '106s6eTuo9xDGTMgo4Z9Z16r4jlHGxZezMPsqa24'
+    }
+  });
+
+  // var garagesOut = new google.maps.FusionTablesLayer({
+  //   query: {
+  //     select: 'geometry',
+  //     from: '106s6eTuo9xDGTMgo4Z9Z16r4jlHGxZezMPsqa24'
+  //   }
+  // });
+
+  // var freeSpots = new google.maps.FusionTablesLayer({
+  //   query: {
+  //     select: 'geometry',
+  //     from: '106s6eTuo9xDGTMgo4Z9Z16r4jlHGxZezMPsqa24'
+  //   }
+  // });
+
+  // var meteredSpots = new google.maps.FusionTablesLayer({
+  //   query: {
+  //     select: 'geometry',
+  //     from: '106s6eTuo9xDGTMgo4Z9Z16r4jlHGxZezMPsqa24'
+  //   }
+  // });
+
+  garagesIn.setMap(map);
+
+  $('#garage').change(function(){
+    garagesIn.setMap($(this).is(':checked') ? map:null);
+    // garagesOut.setMap($(this).is(':checked') ? map:null);
+  });
+
+  $('#indoor').click(function(){
+    garagesIn.setMap($(this).is(':checked') ? map:null);
+  });
+
+  // $('#outdoor').click(function(){
+  //   garagesOut.setMap($(this).is(':checked') ? map:null);
+  // });
+
+  // $('#free').click(function(){
+  //   freeSpots.setMap($(this).is(':checked') ? map:null);
+  // });
+
+  // $('#meter').click(function(){
+  //   meteredSpots.setMap($(this).is(':checked') ? map:null);
+  // });
+  //This section down enables the auto-complete search box
   var input = document.getElementById('pac-input');
-  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
   var searchBox = new google.maps.places.SearchBox(input);
 
@@ -56,22 +106,7 @@ Template.maps.rendered = function(){
     var bounds = map.getBounds();
     searchBox.setBounds(bounds);
   });
-
-  google.maps.event.addDomListener(window, 'load', initialize);
-
-  var garages = new google.maps.FusionTablesLayer({
-    query: {
-      select: 'geometry',
-      from: '106s6eTuo9xDGTMgo4Z9Z16r4jlHGxZezMPsqa24'
-    }
-  });
-
-  $('#meter').click(function(){
-		garages.setMap($(this).is(':checked') ? map:null);
-	});
 };
-
-
 
 Template.filtersBoxUser.events({
 	'change .hasSub' : function(){
@@ -79,12 +114,12 @@ Template.filtersBoxUser.events({
 		for (var i = 0; i < elems.length; i++) {
 			elems[i].disabled = !elems[i].disabled;
 		};
-	}
+	},
 });
 
 Template.filtersBoxNonUser.events({
 	'click .checkboxOverlay' : function(){
-		alert("hello");
+		alert("Please sign in to use this feature.");
 	},
 
 	'change .hasSub' : function(){
