@@ -121,7 +121,7 @@ Template.maps.rendered = function(){
   });
 };
 
-Template.filtersBoxUser.events({
+Template.filters.events({
 	'change .hasSub' : function(){
 		var elems = document.getElementsByClassName('subfilter');
 		for (var i = 0; i < elems.length; i++) {
@@ -130,15 +130,8 @@ Template.filtersBoxUser.events({
 	},
 });
 
-Template.filtersBoxNonUser.events({
+Template.nonUserFilters.events({
 	'click .checkboxOverlay' : function(){
 		alert("Please sign in to use this feature.");
 	},
-
-	'change .hasSub' : function(){
-		var elems = document.getElementsByClassName('subfilter');
-		for (var i = 0; i < elems.length; i++) {
-			elems[i].disabled = !elems[i].disabled;
-		};
-	}
 });
