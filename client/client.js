@@ -82,7 +82,7 @@ Template.maps.rendered = function(){
   //This section down enables the auto-complete search box
   var input = document.getElementById('pac-input');
 
-  var searchBox = new google.maps.places.SearchBox(input);
+  searchBox = new google.maps.places.SearchBox(input);
 
   google.maps.event.addListener(searchBox, 'places_changed', function() {
     var places = searchBox.getPlaces();
@@ -93,7 +93,8 @@ Template.maps.rendered = function(){
 
     // For each place, get the icon, place name, and location.
     markers = [];
-    var bounds = new google.maps.LatLngBounds();
+    bounds = new google.maps.LatLngBounds();
+    var mapZoom = map.getZoom();
     for (var i = 0, place; place = places[i]; i++) {
       var image = {
         url: place.icon,
@@ -108,7 +109,8 @@ Template.maps.rendered = function(){
         map: map,
         icon: image,
         title: place.name,
-        position: place.geometry.location
+        position: place.geometry.location,
+        animation: google.maps.Animation.DROP
       });
 
       markers.push(marker);
@@ -117,15 +119,49 @@ Template.maps.rendered = function(){
     }
 
     map.fitBounds(bounds);
+    var listener = google.maps.event.addListenerOnce(map, "idle", function() { 
+      if (map.getZoom() > 16) map.setZoom(mapZoom); 
+      google.maps.event.removeListener(listener); 
+    });
   });
 
   google.maps.event.addListener(map, 'bounds_changed', function() {
     var bounds = map.getBounds();
-    searchBox.setBounds(bounds);
+    var searchBox.setBounds(bounds);
+  });
+
+        // google.maps.event.addListener(layer, 'click', function(e) {
+
+        //   // Change the content of the InfoWindow
+        //   e.infoWindowHtml = e.row['Store Name'].value + "<br>";
+
+        //   // If the delivery == yes, add content to the window
+        //   if (e.row['delivery'].value == 'yes') {
+        //     e.infoWindowHtml += "Delivers!";
+        //   }
+        // });
+
+  google.maps.event.addListener(garagesIn, 'click', function(e) {
+    e.infoWindowHtml = e.row['description'].value + "<br/>"
+    // Change the content of the InfoWindow
+    if (e.row['Rates'].value){
+    e.infoWindowHtml += e.row['Rates'].value;}
+  });
+
+  google.maps.event.addListener(meteredSpots, 'click', function(e) {
+
+    // Change the content of the InfoWindow
+    e.infoWindowHtml = e.row['description'].value;
+  });
+
+  google.maps.event.addListener(freeSpots, 'click', function(e) {
+
+    // Change the content of the InfoWindow
+    e.infoWindowHtml = e.row['description'].value;
   });
 };
 
-Template.filters.events({
+Template.garageFilters.events({
 	'change .hasSub' : function(){
 		var elems = document.getElementsByClassName('subfilter');
 		for (var i = 0; i < elems.length; i++) {
