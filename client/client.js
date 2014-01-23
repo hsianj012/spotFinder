@@ -127,7 +127,7 @@ Template.maps.rendered = function(){
 
   google.maps.event.addListener(map, 'bounds_changed', function() {
     var bounds = map.getBounds();
-    var searchBox.setBounds(bounds);
+    searchBox.setBounds(bounds);
   });
 
         // google.maps.event.addListener(layer, 'click', function(e) {
