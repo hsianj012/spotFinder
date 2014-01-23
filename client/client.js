@@ -163,6 +163,7 @@ Template.maps.rendered = function(){
 
 Template.garageFilters.events({
 	'change .hasSub' : function(){
+    if (filterSets) {};
 		var elems = document.getElementsByClassName('subfilter');
 		for (var i = 0; i < elems.length; i++) {
 			elems[i].disabled = !elems[i].disabled;

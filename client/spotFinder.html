@@ -19,13 +19,13 @@
 <template name="banner">
   <div class="header">
     <div class="row"><img id="logo" src="logo.svg"></div>
-    <div class="row"><div id="middle">Find parking locations near:</div><input id="pac-input" class="controls" type="text" placeholder="Search Box"></input></div>
+    <div class="row"><div id="middle">Find parking locations near:<sup>*</sup></div><input id="pac-input" class="controls" type="text" placeholder="Search Box"></input></div>
     <div class="row login">{{loginButtons align="right"}}</div>
   </div>
 </template>
 
 <template name="bottomBanner">
-  <div class="footer">spotFinder cannot guarantee a parking spot will be availible upon your arrival.</div>
+  <div class="footer"><sup>*</sup>spotFinder cannot guarantee a parking spot will be availible upon your arrival.</div>
 </template>
 
 <template name="maps">
@@ -36,24 +36,22 @@
     {{else}}
       {{> nonUserFilters}}
     {{/if}}
-
+    {{> garageFilters}}
   </div><div id="map-canvas"></div></div>
 </template>
 
 <template name="userFilters">
   <div class="filter"><input type="checkbox" id="free">Free<br/></div>    
   <div class="filter"><input type="checkbox" id="meter" >Metered<br/></div>
-  {{> garageFilters}}
 </template>
 
 <template name="nonUserFilters">
   <div class="filter checkboxWrapper"><input disabled unchecked type="checkbox" id="free"><div class="checkboxOverlay" onclick="notify();"></div>Free<br/></div>    
   <div class="filter checkboxWrapper"><input disabled unchecked type="checkbox" id="meter"><div class="checkboxOverlay" onclick="notify();"></div>Metered<br/></div>
-  {{> garageFilters}}
 </template>
 
 <template name="garageFilters">
   <div class="filter hasSub"><input checked type="checkbox" id="garage">Garage<br/></div>
-  <div class="subfilter-box"><input checked class="subfilter" type="checkbox" id="indoor">Indoor<br/></div>
+  <div class="subfilter-box"><input checked class="subfilter" type="checkbox" id="indoor" >Indoor<br/></div>
   <div class="subfilter-box"><input checked class="subfilter" type="checkbox" id="outdoor">Outdoor<br/></div> 
 </template>
