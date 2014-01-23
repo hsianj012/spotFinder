@@ -13,10 +13,6 @@ div{
     display: block;
 }
 
-#full{
-  height: 100%
-}
-
 .row.login{
     position: absolute;
     top: 10px;
@@ -36,11 +32,20 @@ div{
     margin-bottom: 2px;
 }
 
+#middle{
+    position: absolute;
+    margin-left: 20px;
+    top:20px;
+}
+
 .footer {
     height: 50px;
     background-color: #a6dced;
     margin-top: 2px;
     bottom: 0px;
+    text-align: center;
+    font-size: 8pt;
+    padding-top: 10pt;
 }
 
 .row {
@@ -54,7 +59,7 @@ div{
 }
 
 .controls {
-  margin-top: 34px;
+  margin-top: 50px;
   margin-left:20px;
   border: 1px solid transparent;
   border-radius: 2px;
