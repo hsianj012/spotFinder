@@ -2,7 +2,11 @@ Meteor.startup(function(){
   Hooks.init();
 });
 
+
 Template.maps.rendered = function(){
+  var winHeight = window.innerHeight;
+  document.getElementById("full").style.height = winHeight-154+"px";
+
   var markers = [];
   var mapOptions = {
     zoom: 14,
