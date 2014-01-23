@@ -44,12 +44,12 @@ Template.maps.rendered = function(){
     }
   });
 
-  // meteredSpots = new google.maps.FusionTablesLayer({
-  //   query: {
-  //     select: 'geometry',
-  //     from: '106s6eTuo9xDGTMgo4Z9Z16r4jlHGxZezMPsqa24'
-  //   }
-  // });
+  meteredSpots = new google.maps.FusionTablesLayer({
+    query: {
+      select: 'geometry',
+      from: '14RsraqmwvbUQbkQJSNNGUhZi2kG0wZ01CND2Dro'
+    }
+  });
 
   // garagesIn.filterMap(map);
   // garagesOut.filterMap(map);
@@ -76,9 +76,9 @@ Template.maps.rendered = function(){
     freeSpots.setMap($(this).is(':checked') ? map:null);
   });
 
-  // $('#meter').click(function(){
-  //   meteredSpots.setMap($(this).is(':checked') ? map:null);
-  // });
+  $('#meter').click(function(){
+    meteredSpots.setMap($(this).is(':checked') ? map:null);
+  });
   //This section down enables the auto-complete search box
   var input = document.getElementById('pac-input');
 
