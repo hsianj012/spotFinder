@@ -9,7 +9,7 @@ Template.maps.rendered = function(){
 
   var markers = [];
   var mapOptions = {
-    zoom: 14,
+    zoom: 15,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     center: new google.maps.LatLng(42.359, -71.093)
   };
@@ -140,12 +140,16 @@ Template.maps.rendered = function(){
         //     e.infoWindowHtml += "Delivers!";
         //   }
         // });
+  google.maps.event.addListener(garagesOut, 'click', function(e) {
+    e.infoWindowHtml = "<b>" + e.row['name'].value + "</b>" + "<br/>"
+    e.infoWindowHtml += e.row['description'].value + "<br/>"
+    // Change the content of the InfoWindow
+  });
 
   google.maps.event.addListener(garagesIn, 'click', function(e) {
-    e.infoWindowHtml = e.row['description'].value + "<br/>"
+    e.infoWindowHtml = "<b>" + e.row['name'].value + "</b>" + "<br/>"
+    e.infoWindowHtml += e.row['description'].value + "<br/>"
     // Change the content of the InfoWindow
-    if (e.row['Rates'].value){
-    e.infoWindowHtml += e.row['Rates'].value;}
   });
 
   google.maps.event.addListener(meteredSpots, 'click', function(e) {
